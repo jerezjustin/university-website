@@ -16,6 +16,10 @@ function university_resources(): void
 
 function university_features(): void
 {
+    register_nav_menu('headerMenu', 'Header Menu');
+    register_nav_menu('footerMenuFirstColumn', 'Footer Menu - First Column');
+    register_nav_menu('footerMenuSecondColumn', 'Footer Menu - Second Column');
+
     add_theme_support('title-tag');
 }
 
