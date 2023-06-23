@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <?php wp_head() ?>
-    </head>
-    <body>
-        <header class="site-header">
+<html <?= language_attributes(); ?>">
+
+<head>
+    <meta charset="<?= bloginfo('charset'); ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <?php wp_head() ?>
+</head>
+
+<body <?= body_class() ?>>
+    <header class="site-header">
         <div class="container">
             <h1 class="school-logo-text float-left">
                 <a href="<?= site_url('/') ?>"><strong>Fictional</strong> University</a>
@@ -14,11 +18,11 @@
             <div class="site-header__menu group">
                 <nav class="main-navigation">
                     <ul>
-                    <li><a href="<?= site_url('/about-us') ?>">About Us</a></li>
-                    <li><a href="#">Programs</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Campuses</a></li>
-                    <li><a href="#">Blog</a></li>
+                        <li><a href="<?= site_url('/about-us') ?>">About Us</a></li>
+                        <li><a href="#">Programs</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Campuses</a></li>
+                        <li><a href="#">Blog</a></li>
                     </ul>
                 </nav>
                 <div class="site-header__util">
