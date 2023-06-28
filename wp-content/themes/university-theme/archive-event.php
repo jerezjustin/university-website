@@ -4,9 +4,9 @@
     <div class="page-banner__bg-image" style="background-image: url(<?= get_theme_file_uri('images/ocean.jpg') ?>)"></div>
 
     <div class="page-banner__content container container--narrow">
-        <h1 class="page-banner__title">Welcome to our blog!</h1>
+        <h1 class="page-banner__title">All Events</h1>
         <div class="page-banner__intro">
-            <p>Keep up with our latest news.</p>
+            <p>See the uncoming events in our community.</p>
         </div>
     </div>
 </div>
@@ -22,7 +22,7 @@
             </h2>
 
             <div class="metabox">
-                <p>Posted by <?= the_author_posts_link(); ?> on <?= the_date(); ?> in <?= get_the_category_list(', '); ?></p>
+                <p><?= the_date(); ?></p>
             </div>
 
             <div class="generic-content">
