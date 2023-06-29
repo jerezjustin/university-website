@@ -16,19 +16,32 @@
             <h2 class="headline headline--small-plus t-center">Upcoming Events</h2>
 
             <?php
+            $today = date('Ymd');
+
             $recentEvents = new WP_Query([
                 'post_per_page' => 2,
-                'post_type' => 'event'
+                'post_type' => 'event',
+                'order' => 'ASC',
+                'orderby' => 'meta_value_num',
+                'meta_key' => 'event_date',
+                'meta_query' => [
+                    'key' => 'event_date',
+                    'compare' => '>=',
+                    'value' => $today,
+                    'type' => 'numeric'
+                ]
             ]);
 
             while ($recentEvents->have_posts()) {
                 $recentEvents->the_post();
+
+                $eventDate = new DateTime(get_field('event_date'));
             ?>
 
                 <div class="event-summary">
                     <a class="event-summary__date t-center" href="<?= the_permalink(); ?>">
-                        <span class="event-summary__month"><?= the_time('M'); ?></span>
-                        <span class="event-summary__day"><?= the_time('d'); ?></span>
+                        <span class="event-summary__month"><?= $eventDate->format('M'); ?></span>
+                        <span class="event-summary__day"><?= $eventDate->format('d'); ?></span>
                     </a>
                     <div class="event-summary__content">
                         <h5 class="event-summary__title headline headline--tiny"><a href="<?= the_permalink(); ?>"><?= the_title(); ?></a></h5>
@@ -56,7 +69,7 @@
 
             <?php
             $recentPosts = new WP_Query([
-                'posts_per_page' => 2
+                'posts_per_page' => 2,
             ]);
 
             while ($recentPosts->have_posts()) {
