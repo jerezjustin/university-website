@@ -1,4 +1,4 @@
-<?= get_header() ?>
+<?php get_header(); ?>
 
 <div class="page-banner">
     <div class="page-banner__bg-image" style="background-image: url(<?= get_theme_file_uri('images/ocean.jpg') ?>)"></div>
@@ -44,4 +44,6 @@
     <p>Looking for a recap of past events? <a href="<?= site_url('/past-events') ?>">Checkout our past events archive.</a></p>
 </div>
 
-<? get_footer() ?>
+<?php
+
+get_footer();
